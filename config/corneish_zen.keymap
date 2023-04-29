@@ -25,9 +25,9 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             bindings = <&mo>, <&tog>;
-        }
+        };
     };
-     keymap {
+    keymap {
         compatible = "zmk,keymap";
 
         default_layer {
@@ -47,15 +47,15 @@
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |    |  7  |  8  |  9  |  BT1  |   | BT4  | PG_UP |  UP | BG_DN |     | BKSP |
-// | BTCLR|    |  4  |  5  |  6  |  BT2  |   | BT5  | LFT   | DWN | RGT   |     |      |
-// | SHFT |    |  1  |  2  |  3  |  BT3  |   | BT6  |       |     |       |     |      |
-//                    | GUI |     | 0  |   | ENT |     | ALT |
+// |  TAB | 0  |  7  |  8  |  9  |  BT1  |   | BT4  | PG_UP |  UP | BG_DN |     | BKSP |
+// | BTCLR| 0  |  4  |  5  |  6  |  BT2  |   | BT5  | LFT   | DWN | RGT   |     |      |
+// | SHFT | 0  |  1  |  2  |  3  |  BT3  |   | BT6  |       |     |       |     |      |
+//                    | GUI |     | SPC  |   | ENT |     | ALT |
             bindings = <
-   &kp TAB    &trans &kp N7       &kp N8       &kp N9       &bt BT_SEL 0   &bt BT_SEL 3   &kp PG_UP &kp UP    &kp PG_DN &trans &bspc_del
-   &bt BT_CLR &trans &kp N4       &kp N5       &kp N6       &bt BT_SEL 1   &bt BT_SEL 4   &kp LEFT  &kp DOWN  &kp RIGHT &trans &trans
-   &kp LSHFT  &trans &kp N1       &kp N2       &kp N3       &bt BT_SEL 2   &bt BT_SEL 5   &trans    &trans    &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp N0      &kp RET  &trans   &kp RALT
+   &kp TAB    &kp N0 &kp N7       &kp N8       &kp N9       &bt BT_SEL 0   &bt BT_SEL 3   &kp PG_UP &kp UP    &kp PG_DN &trans &bspc_del
+   &bt BT_CLR &kp N0 &kp N4       &kp N5       &kp N6       &bt BT_SEL 1   &bt BT_SEL 4   &kp LEFT  &kp DOWN  &kp RIGHT &trans &trans
+   &kp LSHFT  &kp N0 &kp N1       &kp N2       &kp N3       &bt BT_SEL 2   &bt BT_SEL 5   &trans    &trans    &trans    &trans &trans
+                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
             >;
         };
         raise_layer {
