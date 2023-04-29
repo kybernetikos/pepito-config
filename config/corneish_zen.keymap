@@ -7,13 +7,9 @@
 #define RAISE   2
 
 / {
-  chosen {
-    zmk,matrix_transform = &default_transform;
-    //zmk,matrix_transform = &five_column_transform;
-  };
-};
-
-/ {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+    };
     behaviors {
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
@@ -23,55 +19,58 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
+        mtog: momentary_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOMENTARY_TOGGLE";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&tog>;
+        }
     };
-};
+     keymap {
+        compatible = "zmk,keymap";
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-                        label = "QWERTY";
+        default_layer {
+            label = "QWERTY";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
+            bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &bspc_del
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo LOWER &kp SPACE   &kp RET &mo RAISE &kp RALT
-                        >;
-                };
-                lower_layer {
-                        label = "NUMBER";
+                  &kp LGUI &mtog LOWER LOWER &kp SPACE   &kp RET &mtog RAISE RAISE &kp RALT
+            >;
+        };
+        lower_layer {
+            label = "NUMBER";
 // -----------------------------------------------------------------------------------------
 // |  TAB |    |  7  |  8  |  9  |  BT1  |   | BT4  | PG_UP |  UP | BG_DN |     | BKSP |
-// | BTCLR|    |  4  |  5  |  6  |  BT2  |   | BT5  | LFT   | DWN | RGT   |     | DEL  |
+// | BTCLR|    |  4  |  5  |  6  |  BT2  |   | BT5  | LFT   | DWN | RGT   |     |      |
 // | SHFT |    |  1  |  2  |  3  |  BT3  |   | BT6  |       |     |       |     |      |
 //                    | GUI |     | 0  |   | ENT |     | ALT |
-                        bindings = <
+            bindings = <
    &kp TAB    &trans &kp N7       &kp N8       &kp N9       &bt BT_SEL 0   &bt BT_SEL 3   &kp PG_UP &kp UP    &kp PG_DN &trans &bspc_del
    &bt BT_CLR &trans &kp N4       &kp N5       &kp N6       &bt BT_SEL 1   &bt BT_SEL 4   &kp LEFT  &kp DOWN  &kp RIGHT &trans &trans
    &kp LSHFT  &trans &kp N1       &kp N2       &kp N3       &bt BT_SEL 2   &bt BT_SEL 5   &trans    &trans    &trans    &trans &trans
                           	        &kp LGUI     &trans       &kp N0      &kp RET  &trans   &kp RALT
-                        >;
-                };
-
-                raise_layer {
-                        label = "SYMBOL";
+            >;
+        };
+        raise_layer {
+            label = "SYMBOL";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
+            bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp STAR &kp LPAR &kp RPAR &bspc_del
    &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
    &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
                     	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+            >;
         };
+    };
 };
