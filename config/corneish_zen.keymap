@@ -15,6 +15,19 @@
     chosen {
         zmk,matrix_transform = &default_transform;
     };
+    macros {
+      #define OS_LEAD  &kp LC(LS(U))     // OS specific sequence to initialize unicode
+      #define OS_TRAIL &kp SPACE         // OS specific sequence to terminate unicode
+
+      euro: euro {  // euro symbol
+        wait-ms = <5>;
+        tap-ms = <5>;
+        compatible = "zmk,behavior-macro";
+        label = "UC_EURO";
+        #binding-cells = <0>;
+        bindings = <OS_LEAD &kp 2 &kp 0 &kp A &kp C OS_TRAIL>;
+      }
+    };
     behaviors {
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
@@ -45,7 +58,7 @@
             label = "CURRENCY";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DOLLAR>, <&kp POUND>, <&kp EURO>, <&kp YEN>;
+            bindings = <&kp DOLLAR>, <&euro>;
         };
     };
     keymap {
