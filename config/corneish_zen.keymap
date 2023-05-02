@@ -25,7 +25,15 @@
         compatible = "zmk,behavior-macro";
         label = "UC_EURO";
         #binding-cells = <0>;
-        bindings = <OS_LEAD &kp 2 &kp 0 &kp A &kp C OS_TRAIL>;
+        bindings = <OS_LEAD &kp N2 &kp N0 &kp A &kp C OS_TRAIL>;
+      };
+      pound: pound {  // euro symbol
+        wait-ms = <5>;
+        tap-ms = <5>;
+        compatible = "zmk,behavior-macro";
+        label = "UC_POUND";
+        #binding-cells = <0>;
+        bindings = <OS_LEAD &kp A &kp N3 OS_TRAIL>;
       };
     };
     behaviors {
@@ -58,7 +66,7 @@
             label = "CURRENCY";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DOLLAR>, <&euro>;
+            bindings = <&kp DOLLAR>, <&pound>, <&euro>;
         };
     };
     keymap {
