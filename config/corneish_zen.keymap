@@ -106,6 +106,6 @@
    &to DEFAULT &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &none     &none &none &none &none  &none &to DEFAULT
                     &to DEFAULT MO_TO(NUMBER)   &to DEFAULT   &to DEFAULT   &mto SYMBOL SYMBOL   &to DEFAULT
             >;
-        }
+        };
     };
 };
