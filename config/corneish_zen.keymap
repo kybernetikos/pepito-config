@@ -125,9 +125,9 @@
 // | SHFT |  BTCLR |  BT1 |  BT2 |  BT3 |    |---|    |    |    |    |    | DFLT |
 //                         | GUI |     | SPC |---| ENT |     | ALT |
             bindings = <
-   &to DEFAULT &none       &none         &none          &none          &none     &none &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &mwh SCROLL_UP   &none
-   &to DEFAULT &none       &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_SEL 5   &none     &none &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &mwh SCROLL_DOWN &none
-   &to DEFAULT &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &none     &none &none          &none          &mkp MCLK       &none            &to DEFAULT
+   &to DEFAULT &none       &none         &none          &none          &none     &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none   &none
+   &to DEFAULT &none       &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_SEL 5   &none     &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none   &none
+   &to DEFAULT &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &none     &none            &mkp LCLK      &mkp MCLK      &mkp RCLK       &none   &to DEFAULT
                     &to DEFAULT MO_TO(NUMBER)   &to DEFAULT   &to DEFAULT   &mto SYMBOL SYMBOL   &to DEFAULT
             >;
         };
