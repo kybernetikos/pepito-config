@@ -16,8 +16,8 @@
         zmk,matrix_transform = &default_transform;
     };
     macros {
-      #define OS_LEAD  &kp LC(LS(U))     // OS specific sequence to initialize unicode
-      #define OS_TRAIL &kp SPACE         // OS specific sequence to terminate unicode
+      #define OS_LEAD  &kp LC(LS(U))     // Linux specific sequence to initialize unicode
+      #define OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
 
       euro: euro {  // euro symbol
         wait-ms = <5>;
@@ -26,12 +26,12 @@
         label = "UC_EURO";
         #binding-cells = <0>;
         bindings = <OS_LEAD &kp 2 &kp 0 &kp A &kp C OS_TRAIL>;
-      }
+      };
     };
     behaviors {
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
-            label = "BACKSPACE_DELETE";
+            label = "BACKSPACE_DEL";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
