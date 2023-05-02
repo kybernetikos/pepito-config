@@ -2,10 +2,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define MO_TO(layer) &mo_to layer layer   // Macro to apply momentary-layer-on-hold/go-to-layer-on-tap
+#define HYPER LA(LS(LC(LGUI))) // definition for a hyper key
+#define MEH LA(LS(LCTRL)) // definition for a meta key
+
 #define DEFAULT  0
 #define NUMBER   1
 #define SYMBOL   2
-#define SPECIAL    3
+#define SPECIAL  3
 
 / {
     chosen {
@@ -35,7 +39,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LSHIFT>, <&kp CAPS>;
-        }
+        };
+        cur: currency {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CURRENCY";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DOLLAR>, <&kp POUND>, <&kp EURO>, <&kp YEN>;
+        };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -51,7 +62,7 @@
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &bspc_del
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &slk      &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mto NUMBER NUMBER &kp SPACE   &kp RET &mto SYMBOL SYMBOL &kp RALT
+                  &kp LGUI MO_TO(NUMBER) &kp SPACE   &kp RET MO_TO(SYMBOL) &kp RALT
             >;
         };
         lower_layer {
@@ -65,7 +76,7 @@
    &kp TAB    &trans &kp N7      &kp N8       &kp N9       &trans   &trans   &kp PG_UP &kp UP    &kp PG_DN &trans &bspc_del
    &kp LCTRL  &kp N0 &kp N4      &kp N5       &kp N6       &trans   &trans   &kp LEFT  &kp DOWN   &kp RIGHT &trans &trans
    &slk       &kp N0 &kp N1      &kp N2       &kp N3       &trans   &trans   &kp HOME  &kp PSCRN &kp END   &trans &to SPECIAL
-                    &kp LGUI   &to DEFAULT       &kp SPACE      &kp RET  &mto SYMBOL SYMBOL   &kp RALT
+                    &kp LGUI   &to DEFAULT       &kp SPACE      &kp RET  MO_TO(SYMBOL)   &kp RALT
             >;
         };
         raise_layer {
@@ -76,10 +87,10 @@
 // | SHFT |  F6 |  F7 |  F8 |  F9 |  F10 |---|  ^  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     |  SPC |---| ENT |     | ALT |
             bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp AMPS  &kp STAR &kp LPAR &kp RPAR  &kp EQUAL &bspc_del
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &cur     &kp PRCNT   &kp AMPS  &kp STAR &kp LPAR &kp RPAR  &kp EQUAL &bspc_del
    &kp LCTRL &kp F1   &kp F2 &kp F3   &kp F4   &kp F5      &kp UNDER &kp MINUS &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
    slk       &kp F6   &kp F7 &kp F8   &kp F9   &kp F10     &kp CARET &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &mto NUMBER NUMBER   &kp SPACE   &kp RET   &to DEFAULT    &kp RALT
+                    	     &kp LGUI MO_TO(NUMBER)   &kp SPACE   &kp RET   &to DEFAULT    &kp RALT
             >;
         };
         special_layer {
@@ -93,7 +104,7 @@
    &to DEFAULT &none       &none         &none          &none          &none     &none &none &none &none  &none &none
    &to DEFAULT &none       &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_SEL 5   &none     &none &none &none &none  &none &none
    &to DEFAULT &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &none     &none &none &none &none  &none &to DEFAULT
-                    &to DEFAULT &mto NUMBER NUMBER   &to DEFAULT   &to DEFAULT   &mto SYMBOL SYMBOL   &to DEFAULT
+                    &to DEFAULT MO_TO(NUMBER)   &to DEFAULT   &to DEFAULT   &mto SYMBOL SYMBOL   &to DEFAULT
             >;
         }
     };
