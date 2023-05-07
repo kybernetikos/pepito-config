@@ -92,28 +92,28 @@
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |    |  7  |  8  |  9  |    |---|   | PG_UP |  UP | PG_DN |     | BKSP   |
-// | CTRL | 0  |  4  |  5  |  6  |    |---|   | LFT   | DWN | RGT   |     |        |
-// | SHFT | 0  |  1  |  2  |  3  |    |---|   | HOME  | PRNT| END   |     | SPECIAL|
+// |  TAB |    |  7  |  8  |  9  |    |---|       | Home  |  UP | END   |      | BKSP   |
+// | CTRL | 0  |  4  |  5  |  6  |    |---| SPCL  | LFT   | DWN | RGT   |      |        |
+// | SHFT | 0  |  1  |  2  |  3  |    |---|       | PG_UP | PRNT| PG_DN |      | ESC    |
 //                 | GUI |     | SPC  |---| ENT |     | ALT |
             bindings = <
-   &kp TAB    &trans &kp N7      &kp N8       &kp N9       &trans   &trans   &kp PG_UP &kp UP    &kp PG_DN &trans &bspc_del
-   &kp LCTRL  &kp N0 &kp N4      &kp N5       &kp N6       &trans   &trans   &kp LEFT  &kp DOWN   &kp RIGHT &trans &trans
-   &slk       &kp N0 &kp N1      &kp N2       &kp N3       &trans   &trans   &kp HOME  &kp PSCRN &kp END   &trans &to SPECIAL
+   &kp TAB    &trans &kp N7      &kp N8       &kp N9       &trans   &trans        &kp HOME  &kp UP    &kp END    &trans    &bspc_del
+   &kp LCTRL  &kp N0 &kp N4      &kp N5       &kp N6       &trans   &to SPECIAL   &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &trans
+   &slk       &kp N0 &kp N1      &kp N2       &kp N3       &trans   &trans        &kp PG_UP &kp PSCRN &kp PG_DN  &trans    &kp ESC
                     &kp LGUI   &to DEFAULT       &kp SPACE      &kp RET  MO_TO(SYMBOL)   &kp RALT
             >;
         };
         raise_layer {
             label = "SYMBOL";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %   |---|  &  |  *  |  (  |  )  |  =  | BKSP |
-// | CTRL |  F1 |  F2 |  F3 |  F4 |  F5  |---|  _  |  -  |  [  |  ]  |  \  |  `   |
-// | SHFT |  F6 |  F7 |  F8 |  F9 |  F10 |---|  ^  |  +  |  {  |  }  | "|" |  ~   |
+// |  TAB |  !  |  @  |  #  |  $  |  %   |---|  &  |  *  |  {  |  }  |  =  | BKSP |
+// | CTRL |  F1 |  F2 |  F3 |  F4 |  F5  |---|  _  |  -  |  (  |  )  |  \  |  `   |
+// | SHFT |  F6 |  F7 |  F8 |  F9 |  F10 |---|  ^  |  +  |  [  |  ]  | "|" |  ~   |
 //                    | GUI |     |  SPC |---| ENT |     | ALT |
             bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &cur     &kp PRCNT   &kp AMPS  &kp STAR &kp LPAR &kp RPAR  &kp EQUAL &bspc_del
-   &kp LCTRL &kp F1   &kp F2 &kp F3   &kp F4   &kp F5      &kp UNDER &kp MINUS &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-   &slk      &kp F6   &kp F7 &kp F8   &kp F9   &kp F10     &kp CARET &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &cur     &kp PRCNT   &kp AMPS  &kp STAR  &kp LBRC &kp RBRC &kp EQUAL &bspc_del
+   &kp LCTRL &kp F1   &kp F2 &kp F3   &kp F4   &kp F5      &kp UNDER &kp MINUS &kp LPAR &kp RPAR &kp BSLH &kp GRAVE
+   &slk      &kp F6   &kp F7 &kp F8   &kp F9   &kp F10     &kp CARET &kp PLUS  &kp LBKT &kp RBKT &kp PIPE &kp TILDE
                     	     &kp LGUI MO_TO(NUMBER)   &kp SPACE   &kp RET   &to DEFAULT    &kp RALT
             >;
         };
