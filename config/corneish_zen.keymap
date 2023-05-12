@@ -11,6 +11,7 @@
 #define NUMB    1
 #define SYMB    2
 #define FUNC    3
+#define ARTSEY  4
 
 #define LINUX_OS_LEAD &kp LC(LS(U))     // Linux specific sequence to initialize unicode
 #define LINUX_OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
