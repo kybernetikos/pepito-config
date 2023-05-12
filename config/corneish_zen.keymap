@@ -5,12 +5,12 @@
 
 #define MO_TO(layer) &mto layer layer   // Macro to apply momentary-layer-on-hold/go-to-layer-on-tap
 #define HYPER LA(LS(LC(LGUI))) // definition for a hyper key
-#define MEH LA(LS(LCTRL)) // definition for a meta key
+#define MEH   LA(LS(LCTRL))    // definition for a meta key
 
-#define DEFAULT  0
-#define NUMBER   1
-#define SYMBOL   2
-#define SPECIAL  3
+#define DEFAULT 0
+#define NUMB    1
+#define SYMB    2
+#define FUNC    3
 
 #define LINUX_OS_LEAD &kp LC(LS(U))     // Linux specific sequence to initialize unicode
 #define LINUX_OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
@@ -146,8 +146,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <NUMBER SYMBOL>;
-            then-layer = <SPECIAL>;
+            if-layers = <NUMB SYMB>;
+            then-layer = <FUNC>;
         };
     };
     keymap {
@@ -156,57 +156,57 @@
         default_layer {
             label = "QWERTY";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |---|  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |---|  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |---|  N  |  M   |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |---| ENT | RSE  | ALT |
             bindings = <
-   &kp TAB    &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &bspc_del
-   &kp LCTRL  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo NUMBER &kp SPACE   &kp RET &mo SYMBOL &kp RALT
+   &kp TAB    &kp Q &kp W &kp E &kp R &kp T       &kp Y   &kp U    &kp I     &kp O   &kp P    &bspc_del
+   &kp LCTRL  &kp A &kp S &kp D &kp F &kp G       &kp H   &kp J    &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B       &kp N   &kp M    &kp COMMA &kp DOT &kp FSLH &kp ESC
+                    &kp LGUI &mo NUMB &kp SPACE   &kp RET &mo SYMB &kp RALT
             >;
         };
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |    |  7  |  8  |  9  |    |---|       | Home  |  UP | END   |      | BKSP   |
+// |  TAB |    |  7  |  8  |  9  |    |---|       | Home  |  UP | PG_UP |      | BKSP   |
 // | CTRL | 0  |  4  |  5  |  6  |    |---|       | LFT   | DWN | RGT   |      |        |
-// | SHFT | 0  |  1  |  2  |  3  |    |---|       | PG_UP | PRNT| PG_DN |      | ESC    |
-//                 | GUI |     | SPC  |---| ENT |     | ALT |
+// | SHFT | 0  |  1  |  2  |  3  |    |---|       | End   | PRNT| PG_DN |      | ESC    |
+//                   | GUI |     | SP |---| ENT   |       | ALT |
             bindings = <
-   &kp TAB    &trans &kp N7      &kp N8       &kp N9       &trans   &trans        &kp HOME  &kp UP    &kp END    &trans    &bspc_del
-   &kp LCTRL  &kp N0 &kp N4      &kp N5       &kp N6       &trans   &trans        &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &trans
-   &kp LSHIFT &kp N0 &kp N1      &kp N2       &kp N3       &trans   &trans        &kp PG_UP &kp PSCRN &kp PG_DN  &trans    &kp ESC
-                    &kp LGUI   &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB    &trans &kp N7   &kp N8    &kp N9  &trans     &trans  &kp HOME  &kp UP    &kp PG_UP  &trans    &bspc_del
+   &kp LCTRL  &kp N0 &kp N4   &kp N5    &kp N6  &trans     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &trans
+   &kp LSHIFT &kp N0 &kp N1   &kp N2    &kp N3  &trans     &trans  &kp END   &kp PSCRN &kp PG_DN  &trans    &kp ESC
+                              &kp LGUI  &trans  &kp SPACE  &kp RET &trans    &kp RALT
             >;
         };
         raise_layer {
             label = "SYMBOL";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %   |---|  &  |  *  |  {  |  }  |  =  | BKSP |
-// | CTRL |  F1 |  F2 |  F3 |  F4 |  F5  |---|  _  |  -  |  (  |  )  |  \  |  `   |
-// | SHFT |  F6 |  F7 |  F8 |  F9 |  F10 |---|  ^  |  +  |  [  |  ]  | "|" |  ~   |
+// | CTRL |     |  =  |  *  |  +  |      |---|  _  |  -  |  (  |  )  |  \  |  `   |
+// | SHFT |     |  _  |  /  |  -  |      |---|  ^  |  +  |  [  |  ]  | "|" |  ~   |
 //                    | GUI |     |  SPC |---| ENT |     | ALT |
             bindings = <
-   &kp  TAB   &kp EXCL &kp AT &kp HASH &cur     &kp PRCNT   &kp AMPS  &kp STAR  &kp LBRC &kp RBRC &kp EQUAL &bspc_del
-   &kp LCTRL  &kp F1   &kp F2 &kp F3   &kp F4   &kp F5      &kp UNDER &kp MINUS &kp LPAR &kp RPAR &kp BSLH &kp GRAVE
-   &kp LSHIFT &kp F6   &kp F7 &kp F8   &kp F9   &kp F10     &kp CARET &kp PLUS  &kp LBKT &kp RBKT &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans  &kp SPACE   &kp RET   &trans &kp RALT
+   &kp  TAB   &kp EXCL &kp AT    &kp HASH &cur     &kp PRCNT   &kp AMPS  &kp STAR  &kp LBRC &kp RBRC &kp EQUAL &bspc_del
+   &kp LCTRL  &kp STAR &kp PLUS  &trans   &trans   &trans      &kp UNDER &kp MINUS &kp LPAR &kp RPAR &kp BSLH  &kp GRAVE
+   &kp LSHIFT &kp FSLH &kp MINUS &trans   &trans   &trans      &kp CARET &kp PLUS  &kp LBKT &kp RBKT &kp PIPE  &kp TILDE
+                    	         &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
             >;
         };
-        special_layer {
-            label = "SPECIAL";
+        func_layer {
+            label = "FUNC";
 // -----------------------------------------------------------------------------------------
-// |  TAB |        |      |      |      |    |---|    |    |    |    |    |      |
-// | CTRL |        |  BT4 |  BT5 |  BT6 |    |---|    |    |    |    |    |      |
-// | SHFT |  BTCLR |  BT1 |  BT2 |  BT3 |    |---|    |    |    |    |    | DFLT |
-//                         | GUI |     | SPC |---| ENT |     | ALT |
+// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  |     |     |
+// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT |     |     |
+// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| BTCLR  | BT1  | BT2 | BT3   | BT4 | BT5 |
+//                  | GUI |    | SPC  |---| ENT    |      | ALT |
             bindings = <
-   &kp  TAB    &none       &mkp RCLK     &mkp MCLK      &mkp LCLK      &none     &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none   &none
-   &kp CAPS    &none       &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_SEL 5   &none     &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none   &none
-   &to DEFAULT &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &none     &none            &none          &none          &none           &none   &none
-                    &trans &trans   &trans   &trans   &trans  &trans
+   &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
+   &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 1 &bt BT_SEL 2
+   &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &trans           &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
+                              &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
             >;
         };
     };
