@@ -93,7 +93,7 @@
         };
         combo_bktab {
               timeout-ms = <50>;
-              key-positions = <3 4>;
+              key-positions = <1 2 3 4>;
               bindings = <&kp LS(TAB)>;
           };
         combo_space {
@@ -103,12 +103,12 @@
         };
         combo_enterleft {
             timeout-ms = <50>;
-            key-positions = <15 16>;
+            key-positions = <26 27 28>;
             bindings = <&kp ENTER>;
         };
         combo_caps {
             timeout-ms = <50>;
-            key-positions = <26 27 28>;
+            key-positions = <25 26 27 28>;
             bindings = <&kp CAPS>;
         };
         combo_copy {
@@ -116,15 +116,15 @@
             key-positions = <36 37 38>;
             bindings = <&kp LC(C)>;
         };
-        combo_paste {
-            timeout-ms = <50>;
-            key-positions = <37 38>;
-            bindings = <&kp LC(V)>;
-        };
         combo_bspcleft {
             timeout-ms = <50>;
             key-positions = <28 29>;
             bindings = <&kp BACKSPACE>;
+        };
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <37 38>;
+            bindings = <&kp LC(V)>;
         };
 
         combo_bspc {
@@ -198,9 +198,9 @@
         func_layer {
             label = "FUNC";
 // -----------------------------------------------------------------------------------------
-// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  |     |     |
-// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT |     |     |
-// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| BTCLR  | BT1  | BT2 | BT3   | BT4 | BT5 |
+// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  | BTCLR | BT1 |
+// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT | BT2   | BT3 |
+// | SHFT | F10 | F1 | F2 | F3 | RCLK |---|        |      |     |       | BT4   | BT5 |
 //                  | GUI |    | SPC  |---| ENT    |      | ALT |
             bindings = <
    &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
