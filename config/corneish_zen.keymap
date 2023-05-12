@@ -11,7 +11,9 @@
 #define NUMB    1
 #define SYMB    2
 #define FUNC    3
-#define EXP     4
+#define ARTSEY  4
+
+#define ALL_NORMAL_LAYERS DEFAULT NUMB SYMB FUNC
 
 #define LINUX_OS_LEAD &kp LC(LS(U))     // Linux specific sequence to initialize unicode
 #define LINUX_OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
@@ -88,62 +90,74 @@
             bindings = <&to DEFAULT>;
         };
         combo_esc {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <2 3>;
             bindings = <&kp ESC>;
         };
         combo_tab {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <2 3 4>;
             bindings = <&kp TAB>;
         };
         combo_bktab {
+              layers = <ALL_NORMAL_LAYERS>;
               timeout-ms = <50>;
               key-positions = <1 2 3 4>;
               bindings = <&kp LS(TAB)>;
           };
         combo_space {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <14 15 16>;
             bindings = <&kp SPACE>;
         };^
         combo_bspcleft {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <13 14 15 16>;
             bindings = <&kp BACKSPACE>;
         };
         combo_enterleft {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <26 27 28>;
             bindings = <&kp ENTER>;
         };
         combo_caps {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <25 26 27 28>;
             bindings = <&kp CAPS>;
         };
         combo_copy {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <36 37 38>;
             bindings = <&kp LC(C)>;
         };
         combo_paste {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <37 38>;
             bindings = <&kp LC(V)>;
         };
 
         combo_bspc {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <7 8 9>;
             bindings = <&kp BACKSPACE>;
         };
         combo_enter {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <19 20 21>;
             bindings = <&kp ENTER>;
         };
         combo_undo {
+            layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <50>;
             key-positions = <31 32 33>;
             bindings = <&kp LC(Z)>;
@@ -199,30 +213,43 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  | BTCLR | BT1 |
 // | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT | BT2   | BT3 |
-// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| EXP    |      |     |       | BT4   | BT5 |
+// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| ARTSEY |      |     |       | BT4   | BT5 |
 //                  | GUI |    | SPC  |---| ENT    |      | ALT |
             bindings = <
    &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
    &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 1 &bt BT_SEL 2
-   &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &to EXP         &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
+   &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &to ARTSEY       &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
                               &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
             >;
         };
     };
-    exp_layer {
-        label = "EXP";
-// -----------------------------------------------------------------------------------------
-// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  | BTCLR | BT1 |
-// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT | BT2   | BT3 |
-// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| EXP    |      |     |       | BT4   | BT5 |
-//                  | GUI |    | SPC  |---| ENT    |      | ALT |
-        bindings = <
-            &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
-            &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 1 &bt BT_SEL 2
-            &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &trans           &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
-                          &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
-        >;
-    };
 };
-};
+
+
+// Enable ARTSEY Left
+#define ARTSEY_LEFT 1
+
+// ARTS Row
+#define KEY_A 4
+#define KEY_R 3
+#define KEY_T 2
+#define KEY_S 1
+// EYIO Row
+#define KEY_E 16
+#define KEY_Y 15
+#define KEY_I 14
+#define KEY_O 13
+
+// Define Offsets
+#define LEADING_NONES NONE(0, 0, 1)
+#define MIDDLE_NONES NONE(0, 0, 8)
+#define TRAILING_NONES NONE(0, 2, 5)
+
+// Thumb buttons (used for BT combos)
+#define THUMB_1 36
+#define THUMB_2 37
+#define THUMB_3 38
+
+// Include main artsey.io keymap
+#include "./artsey.dtsi"
 
