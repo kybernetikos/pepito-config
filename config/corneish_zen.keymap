@@ -11,7 +11,7 @@
 #define NUMB    1
 #define SYMB    2
 #define FUNC    3
-#define ARTSEY  4
+#define EXP     4
 
 #define LINUX_OS_LEAD &kp LC(LS(U))     // Linux specific sequence to initialize unicode
 #define LINUX_OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
@@ -106,7 +106,7 @@
             timeout-ms = <50>;
             key-positions = <14 15 16>;
             bindings = <&kp SPACE>;
-        };
+        };^
         combo_bspcleft {
             timeout-ms = <50>;
             key-positions = <13 14 15 16>;
@@ -199,43 +199,30 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  | BTCLR | BT1 |
 // | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT | BT2   | BT3 |
-// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| ARTSEY |      |     |       | BT4   | BT5 |
+// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| EXP    |      |     |       | BT4   | BT5 |
 //                  | GUI |    | SPC  |---| ENT    |      | ALT |
             bindings = <
    &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
    &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 1 &bt BT_SEL 2
-   &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &to ARTSEY       &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
+   &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &to EXP         &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
                               &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
             >;
         };
     };
+    exp_layer {
+        label = "EXP";
+// -----------------------------------------------------------------------------------------
+// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK | UP  | RCLK  | BTCLR | BT1 |
+// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT | DN  | RIGHT | BT2   | BT3 |
+// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| EXP    |      |     |       | BT4   | BT5 |
+//                  | GUI |    | SPC  |---| ENT    |      | ALT |
+        bindings = <
+            &kp  TAB    &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &bt BT_CLR   &bt BT_SEL 0
+            &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 1 &bt BT_SEL 2
+            &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &trans           &trans         &trans         &trans          &bt BT_SEL 3 &bt BT_SEL 4
+                          &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
+        >;
+    };
 };
-
-// Enable ARTSEY Left
-#define ARTSEY_LEFT 1
-
-// ARTS Row
-#define KEY_A 4
-#define KEY_R 3
-#define KEY_T 2
-#define KEY_S 1
-// EYIO Row
-#define KEY_E 16
-#define KEY_Y 15
-#define KEY_I 14
-#define KEY_O 13
-
-// Define Offsets
-#define LEADING_NONES NONE(0, 0, 1)
-#define MIDDLE_NONES NONE(0, 0, 2)
-#define TRAILING_NONES NONE(0, 1, 0)
-
-// Thumb buttons (used for BT combos)
-#define THUMB_1 36
-#define THUMB_2 37
-#define THUMB_3 38
-
-// Include main artsey.io keymap
-#include "./artsey.dtsi"
-
+};
 
