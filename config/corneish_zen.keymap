@@ -163,6 +163,13 @@
             bindings = <&kp LC(Z)>;
         };
     };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <NUMB SYMB>;
+            then-layer = <FUNC>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
