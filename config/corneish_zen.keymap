@@ -101,6 +101,11 @@
             key-positions = <14 15 16>;
             bindings = <&kp SPACE>;
         };
+        combo_bspcleft {
+            timeout-ms = <50>;
+            key-positions = <13 14 15 16>;
+            bindings = <&kp BACKSPACE>;
+        };
         combo_enterleft {
             timeout-ms = <50>;
             key-positions = <26 27 28>;
@@ -115,11 +120,6 @@
             timeout-ms = <50>;
             key-positions = <36 37 38>;
             bindings = <&kp LC(C)>;
-        };
-        combo_bspcleft {
-            timeout-ms = <50>;
-            key-positions = <28 29>;
-            bindings = <&kp BACKSPACE>;
         };
         combo_paste {
             timeout-ms = <50>;
