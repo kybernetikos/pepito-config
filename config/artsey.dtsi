@@ -11,22 +11,23 @@
 /*****************************************
  * Macros for filling in "&none" in the right places in the keymap for re-use needs
  *****************************************/
-#define NONE0(X)
-#define NONE1(X) X
-#define NONE2(X) NONE1(X) X
-#define NONE3(X) NONE2(X) X
-#define NONE4(X) NONE3(X) X
-#define NONE5(X) NONE4(X) X
-#define NONE6(X) NONE5(X) X
-#define NONE7(X) NONE6(X) X
-#define NONE8(X) NONE7(X) X
-#define NONE9(X) NONE8(X) X
-#define NONE10(X) NONE9(X) X
+#define REP0(X)
+#define REP1(X) X
+#define REP2(X) REP1(X) X
+#define REP3(X) REP2(X) X
+#define REP4(X) REP3(X) X
+#define REP5(X) REP4(X) X
+#define REP6(X) REP5(X) X
+#define REP7(X) REP6(X) X
+#define REP8(X) REP7(X) X
+#define REP9(X) REP8(X) X
+#define REP10(X) REP9(X) X
+#define REP(X,HUNDREDS,TENS,ONES) \
+    REP##HUNDREDS(REP10(REP10(X))) \
+    REP##TENS(REP10(X)) \
+    REP##ONES(X)
 
-#define NONE(HUNDREDS,TENS,ONES) \
-  NONE##HUNDREDS(NONE10(NONE10(&none))) \
-  NONE##TENS(NONE10(&none)) \
-  NONE##ONES(&none)
+#define NONE(HUNDREDS,TENS,ONES) REP(&none, HUNDREDS, TENS, ONES)
 
 /*****************************************
  * ARTSEY website : https://www.artsey.io
