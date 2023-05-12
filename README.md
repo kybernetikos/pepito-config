@@ -6,6 +6,7 @@ This is based on the [zmk-config-Corne-ish-Zen](https://github.com/LOWPROKB/zmk-
 
 ## Resources
 
+- The [caksoylar/zmk](https://github.com/caksoylar/zmk/tree/caksoylar/zen-v1+v2+experimental) fork of ZMK Firmware. This contains screen improvements and mouse keys.
 - The [official ZMK Firmware GitHub](https://github.com/zmkfirmware/zmk) repository. View the keymaps for other boards and shields as a starting point for your keymap.
 - The [official ZMK Documentation](https://zmk.dev/docs) web site. Find the answers to many of your questions about ZMK Firmware.
 - The [official ZMK Discord Server](https://zmk.dev/community/discord/invite). Instant conversations with other ZMK developers and users. Great technical resource!
