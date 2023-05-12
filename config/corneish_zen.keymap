@@ -163,6 +163,12 @@
             key-positions = <31 32 33>;
             bindings = <&kp LC(Z)>;
         };
+        combo_redo {
+            layers = <ALL_NORMAL_LAYERS>;
+            timeout-ms = <50>;
+            key-positions = <31 32 33 34>;
+            bindings = <&kp LS(LC(Z))>;
+        };
     };
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -191,15 +197,15 @@
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |    |  7  |  8  |  9  |    |---|       | Home  |  UP | PG_UP |      | BKSP   |
-// | CTRL | 0  |  4  |  5  |  6  |    |---|       | LFT   | DWN | RGT   |      |        |
-// | SHFT | 0  |  1  |  2  |  3  |    |---|       | End   | PRNT| PG_DN |      | ESC    |
+// |  TAB |    |  7  |  8  |  9  |    |---| INS   | Home  |  UP | PG_UP | SYSREQ | BKSP   |
+// | CTRL | 0  |  4  |  5  |  6  |    |---| DEL   | LFT   | DWN | RGT   |        | SLCK   |
+// | SHFT | 0  |  1  |  2  |  3  |    |---|       | End   | PRNT| PG_DN |        | ESC    |
 //                   | GUI |     | SP |---| ENT   |       | ALT |
             bindings = <
-   &kp TAB    &trans &kp N7   &kp N8    &kp N9  &trans     &trans  &kp HOME  &kp UP    &kp PG_UP  &trans    &bspc_del
-   &kp LCTRL  &kp N0 &kp N4   &kp N5    &kp N6  &trans     &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &trans
-   &kp LSHIFT &kp N0 &kp N1   &kp N2    &kp N3  &trans     &trans  &kp END   &kp PSCRN &kp PG_DN  &trans    &kp ESC
-                              &kp LGUI  &trans  &kp SPACE  &kp RET &trans    &kp RALT
+   &kp TAB    &trans &kp N7   &kp N8    &kp N9  &trans     &kp INS  &kp HOME  &kp UP    &kp PG_UP  &kp SYSREQ  &bspc_del
+   &kp LCTRL  &kp N0 &kp N4   &kp N5    &kp N6  &trans     &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp SLCK
+   &kp LSHIFT &kp N0 &kp N1   &kp N2    &kp N3  &trans     &trans   &kp END   &kp PSCRN &kp PG_DN  &trans      &kp ESC
+                              &kp LGUI  &trans  &kp SPACE  &kp RET  &trans    &kp RALT
             >;
         };
         raise_layer {

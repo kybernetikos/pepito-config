@@ -201,7 +201,9 @@
 
 /*****************************************
  * Layer IDs used by the ARTSEY keymap
- * Do NOT change these and do NOT change the order of the layers as shown below
+ * The order of the layers is important and shouldn't be changed.
+ * LAYER_ID_BASE must be the position of the artsey layer - i.e. it should be the the same as the number of layers
+ * already defined before this file is included. Unfortunately I don't know how to get this value automatically.
  *****************************************/
 #define LAYER_ID_GLOBAL -1
 #define LAYER_ID_BASE 4
