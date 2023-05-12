@@ -202,16 +202,16 @@
  * Layer IDs used by the ARTSEY keymap
  * Do NOT change these and do NOT change the order of the layers as shown below
  *****************************************/
-#define LAYER_ID_GLOBAL 4
-#define LAYER_ID_BASE 5
-#define LAYER_ID_NUMBERS 6
-#define LAYER_ID_SYMBOLS 7
-#define LAYER_ID_PARENTHETICALS 8
-#define LAYER_ID_NAVIGATION 9
-#define LAYER_ID_BT_SEL 10
-#define LAYER_ID_CUSTOM 11
-#define LAYER_ID_BIG_SYM 12
-#define LAYER_ID_BIG_FUNCTION 13
+#define LAYER_ID_GLOBAL -1
+#define LAYER_ID_BASE 4
+#define LAYER_ID_NUMBERS 5
+#define LAYER_ID_SYMBOLS 6
+#define LAYER_ID_PARENTHETICALS 7
+#define LAYER_ID_NAVIGATION 8
+#define LAYER_ID_BT_SEL 9
+#define LAYER_ID_CUSTOM 10
+#define LAYER_ID_BIG_SYM 11
+#define LAYER_ID_BIG_FUNCTION 12
 
 #define ALL_ARTSEY_LAYERS LAYER_ID_BASE LAYER_ID_NUMBERS LAYER_ID_SYMBOLS LAYER_ID_PARENTHETICALS LAYER_ID_NAVIGATION LAYER_ID_BT_SEL LAYER_ID_CUSTOM LAYER_ID_BIG_SYM LAYER_ID_BIG_FUNCTION
 /*****************************************
