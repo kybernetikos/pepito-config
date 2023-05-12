@@ -11,7 +11,6 @@
 #define NUMB    1
 #define SYMB    2
 #define FUNC    3
-#define ARTSEY  4
 
 #define LINUX_OS_LEAD &kp LC(LS(U))     // Linux specific sequence to initialize unicode
 #define LINUX_OS_TRAIL &kp SPACE         // Linux specific sequence to terminate unicode
@@ -147,33 +146,6 @@
             timeout-ms = <50>;
             key-positions = <31 32 33>;
             bindings = <&kp LC(Z)>;
-        };
-
-   /*
-      │      1   2   3   4     │
-      │     13  14  15  16     │
-   */
-        combo_art_m {
-            timeout-ms = <50>;
-            key-positions = <13 14 15>;
-            bindings = <&kp M>;
-        }
-        combo_art_b {
-           timeout-ms = <50>;
-           key-positions = <13 16>;
-           bindings = <&kp B>;
-        }
-        combo_art_n {
-           timeout-ms = <50>;
-           key-positions = <13 14>;
-           bindings = <&kp N>;
-        }
-    };
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <NUMB SYMB>;
-            then-layer = <FUNC>;
         };
     };
     keymap {
