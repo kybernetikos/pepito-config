@@ -84,6 +84,27 @@
             tapping-term-ms = <200>;
             bindings = <&kp DOLLAR>, <&pound>, <&euro>;
         };
+        grv_tld: grave_tilde {
+            compatible = "zmk,behavior-mod-morph";
+            label = "GRAVE_TILDE";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp TILDE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        min_und: minus_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MINUS_UNDERSCORE";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        equ_pls: equal_plus {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EQUAL_PLUS";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&kp PLUS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
     /*                    KEY POSITIONS
       ╭────────────────────────╮ ╭────────────────────────╮
@@ -206,28 +227,28 @@
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |    |  7  |  8  |  9  |    |---| INS   | Home  |  UP | PG_UP | SYSREQ | BKSP   |
-// | CTRL | 0  |  4  |  5  |  6  | .  |---| DEL   | LFT   | DWN | RGT   |        | SLCK   |
+// |  TAB | +  |  7  |  8  |  9  | =  |---| INS   | Home  |  UP | PG_UP | SYSREQ | BKSP   |
+// | CTRL | -  |  4  |  5  |  6  | .  |---| DEL   | LFT   | DWN | RGT   |        | SLCK   |
 // | SHFT | 0  |  1  |  2  |  3  | ,  |---|       | End   | PRNT| PG_DN |        | ESC    |
 //                   | GUI |     | SP |---| ENT   |       | ALT |
             bindings = <
-   &kp TAB    &trans &kp N7   &kp N8    &kp N9  &trans     &kp INS  &kp HOME  &kp UP    &kp PG_UP  &kp SYSREQ  &bspc_del
-   &kp LCTRL  &kp N0 &kp N4   &kp N5    &kp N6  &kp DOT    &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp SLCK
-   &kp LSHIFT &kp N0 &kp N1   &kp N2    &kp N3  &kp COMMA  &trans   &kp END   &kp PSCRN &kp PG_DN  &trans      &kp ESC
+   &kp TAB    &kp PLUS  &kp N7   &kp N8    &kp N9  &kp EQUAL  &kp INS  &kp HOME  &kp UP    &kp PG_UP  &kp SYSREQ  &bspc_del
+   &kp LCTRL  &kp MINUS &kp N4   &kp N5    &kp N6  &kp DOT    &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp SLCK
+   &kp LSHIFT &kp N0    &kp N1   &kp N2    &kp N3  &kp COMMA  &trans   &kp END   &kp PSCRN &kp PG_DN  &trans      &kp ESC
                               &kp LGUI  &trans  &kp SPACE  &kp RET  &trans    &kp RALT
             >;
         };
         raise_layer {
             label = "SYMBOL";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %   |---|  &  |  *  |  {  |  }  |  =  | BKSP |
-// | CTRL |     |  =  |  *  |  +  |      |---|  _  |  -  |  (  |  )  |  \  |  `   |
-// | SHFT |     |  _  |  /  |  -  |      |---|  ^  |  +  |  [  |  ]  | "|" |  ~   |
+// |  `~  |  !  |  @  |  #  |  $  |  %   |---|  &  |  *  |  (  |  )  |  -_ |  =+  |
+// | CTRL |     |  =  |  *  |  +  |      |---|  _  |  -  |  {  |  }  | "|" |      |
+// | SHFT |     |  _  |  /  |  -  |      |---|  ^  |  +  |  [  |  ]  |  \  | SHFT |
 //                    | GUI |     |  SPC |---| ENT |     | ALT |
             bindings = <
-   &kp  TAB   &kp EXCL &kp AT    &kp HASH &cur      &kp PRCNT   &kp AMPS  &kp STAR  &kp LBRC &kp RBRC &kp EQUAL &bspc_del
-   &kp LCTRL  &trans   &kp EQUAL &kp STAR &kp PLUS  &trans      &kp UNDER &kp MINUS &kp LPAR &kp RPAR &kp BSLH  &kp GRAVE
-   &kp LSHIFT &trans   &kp UNDER &kp FSLH &kp MINUS &trans      &kp CARET &kp PLUS  &kp LBKT &kp RBKT &kp PIPE  &kp TILDE
+   &grv-tld   &kp EXCL &kp AT    &kp HASH &cur      &kp PRCNT   &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &min_und  &equ_pls
+   &kp LCTRL  &trans   &kp EQUAL &kp STAR &kp PLUS  &trans      &kp UNDER &kp MINUS &kp LBRC &kp RBRC &kp PIPE  &none
+   &kp LSHIFT &trans   &kp UNDER &kp FSLH &kp MINUS &trans      &kp CARET &kp PLUS  &kp LBKT &kp RBKT &kp BSLH  &RSHIFT
                     	         &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
             >;
         };
