@@ -114,7 +114,7 @@
         };
         str_div: times_divide {
             compatible = "zmk,behavior-mod-morph";
-            label = "PLUS_MINUS";
+            label = "TIMES_DIVIDE";
             #binding-cells = <0>;
             bindings = <&kp STAR>, <&kp FSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
