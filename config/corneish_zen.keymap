@@ -119,6 +119,13 @@
             bindings = <&kp STAR>, <&kp FSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        dot_cma: dot_comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_COMMA";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COMMA>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
     /*                    KEY POSITIONS
       ╭────────────────────────╮ ╭────────────────────────╮
@@ -259,15 +266,15 @@
         lower_layer {
             label = "NUMBER";
 // -----------------------------------------------------------------------------------------
-// |  TAB | */ |  7  |  8  |  9  | =  |---| INS   | Home  |  UP | PG_UP | SYSREQ | BKSP   |
-// | CTRL | +- |  4  |  5  |  6  | .  |---| DEL   | LFT   | DWN | RGT   |        | SLCK   |
-// | SHFT | 0  |  1  |  2  |  3  | ,  |---|       | End   | PRNT| PG_DN |        | ESC    |
-//                   | GUI | □□□ | SP |---| ENT   |       | ALT |
+// |  TAB | */ |  7  |  8  |  9  | =   |---| INS   | Home  |  UP | PG_UP | SYSREQ | BKSP   |
+// | CTRL | +- |  4  |  5  |  6  | .,  |---| DEL   | LFT   | DWN | RGT   |        | SLCK   |
+// | SHFT | 0  |  1  |  2  |  3  | new |---|       | End   | PRNT| PG_DN |        | ESC    |
+//                   | GUI | □□□ | SP  |---| ENT   |       | ALT |
             bindings = <
-   &kp TAB    &str_div  &kp N7   &kp N8    &kp N9  &kp EQUAL  &kp INS  &kp HOME  &kp UP    &kp PG_UP  &kp SYSREQ  &bspc_del
-   &kp LCTRL  &pls_mns  &kp N4   &kp N5    &kp N6  &kp DOT    &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp SLCK
-   &kp LSHIFT &kp N0    &kp N1   &kp N2    &kp N3  &kp COMMA  &trans   &kp END   &kp PSCRN &kp PG_DN  &trans      &kp ESC
-                              &kp LGUI  &trans  &kp SPACE  &kp RET  &trans    &kp RALT
+   &kp TAB    &str_div  &kp N7   &kp N8    &kp N9  &kp EQUAL    &kp INS  &kp HOME  &kp UP    &kp PG_UP  &kp SYSREQ  &bspc_del
+   &kp LCTRL  &pls_mns  &kp N4   &kp N5    &kp N6  &dot_cma     &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &trans      &kp SLCK
+   &kp LSHIFT &kp N0    &kp N1   &kp N2    &kp N3  &kp LC(N)    &trans   &kp END   &kp PSCRN &kp PG_DN  &trans      &kp ESC
+                                 &kp LGUI  &trans  &kp SPACE    &kp RET  &trans    &kp RALT
             >;
         };
         raise_layer {
