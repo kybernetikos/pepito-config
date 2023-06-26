@@ -156,6 +156,12 @@
             key-positions = <26 27 28>;
             bindings = <&kp ENTER>;
         };
+        combo_enterleft_nu {
+            layers = <ALL_NORMAL_LAYERS>;
+            timeout-ms = <40>;
+            key-positions = <4 16>;
+            bindings = <&kp ENTER>;
+        };
         combo_caps {
             layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <40>;
@@ -197,6 +203,18 @@
             layers = <ALL_NORMAL_LAYERS>;
             timeout-ms = <40>;
             key-positions = <31 32 33 34>;
+            bindings = <&kp LS(LC(Z))>;
+        };
+        combo_undo_left {
+            layers = <ALL_NORMAL_LAYERS>;
+            timeout-ms = <40>;
+            key-positions = <16 28>;
+            bindings = <&kp LC(Z)>;
+        };
+        combo_redo_left {
+            layers = <ALL_NORMAL_LAYERS>;
+            timeout-ms = <40>;
+            key-positions = <15 27>;
             bindings = <&kp LS(LC(Z))>;
         };
     };
