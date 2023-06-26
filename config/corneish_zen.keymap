@@ -279,7 +279,7 @@
 //                    | GUI |     |  SPC |---| ENT | □□□ | ALT |
             bindings = <
    &grv_tld   &kp EXCL &kp AT    &kp HASH &cur      &kp PRCNT   &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &min_und  &equ_pls
-   &kp LCTRL  &trans   &trans    &trans   &trans    &trans      &kp CARET &kp CARET &kp LBRC &kp RBRC &kp PIPE  &none
+   &kp LCTRL  &trans   &trans    &trans   &trans    &trans      &kp CARET &trans    &kp LBRC &kp RBRC &kp PIPE  &none
    &kp LSHIFT &trans   &trans    &trans   &trans    &trans      &trans    &trans    &kp LBKT &kp RBKT &kp BSLH  &kp RSHIFT
                     	         &kp LGUI &trans    &kp SPACE   &kp RET   &trans    &kp RALT
             >;

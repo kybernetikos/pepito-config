@@ -15,7 +15,7 @@ This is based on the [zmk-config-Corne-ish-Zen](https://github.com/LOWPROKB/zmk-
 
 ![keybd.jpg](./img/keybd.jpg)
 
-## Philosophy
+## Rationale
 
 The keymap should include every key from a normal keyboard that I ever use. For example, it needs to include caps lock since if your computer has capslock on but the keyboard doesn't have a way to turn caps lock off then you're a bit stuck.
 
@@ -23,19 +23,17 @@ Generally speaking, it shouldn't be difficult for someone to sit down and pick i
 
 It should be a drop in replacement for a typical keyboard. I don't want to have to do customization on the computers I connect it to.
 
-The left hand pad will be used a lot with the mouse on the right hand, so there are some combos for keys likely to be used with the mouse.
-
-Where I'm considering trying something unusual, or am not sure exactly how I will want to use it, I'm not afraid of including multiple keys for the same thing so that I can try them out and see what works best. I like having the 0 key in two places.
+The left hand pad will be used a lot with the mouse on the right hand, so it needs to have access to more of the kinds of keys that will be used with the mouse.
 
 ## Roads not taken
 
 I tried some momentary tap layers, but I was too likely to trigger them due to bad keying and being in the wrong layer is pretty annoying, so I've switched back to momentary layers.
 
-I originally had a tap dance for shift to caps lock, but hammering shift is an important intellij shortcut so I've removed it.
+I originally had a tap dance for shift to caps lock, but hammering shift is an important intellij shortcut so I've removed it. Since I hardly ever use caps lock, it's now quite a strange combo. I haven't given myself a caps word key, but that might be a nice option.
 
 ## Changes from the original
 
-Layers are qwerty, number/navigation, symbols, function/mouse/bluetooth, and then artsey layers for the left hand. The artsey layers are an experiment.
+Layers are qwerty, number/navigation, symbols, function/mouse/bluetooth, plover and then artsey layers for the left hand. The plover layer ideally would use plover hid, but that's complicated to set up, at the moment it just contains a keylayout that works well with plover and the enable/disable combo on the escape key. The artsey layers are an experiment.
 
 ![layouts.png](./img/layouts.png)
 
