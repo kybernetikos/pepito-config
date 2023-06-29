@@ -53,6 +53,16 @@
       };
     };
     behaviors {
+        holdbt: hold_bt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HBT";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            quick-tap-ms = <200>;
+            bindings = <&bt>, <&none>;
+            hold-trigger-key-positions = <1>;
+        };
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "BACKSPACE_DEL";
@@ -294,12 +304,12 @@
         func_layer {
             label = "FUNC";
 // -----------------------------------------------------------------------------------------
-// |  TAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK   | UP  | RCLK  | OUTTOG | BTCLR |
-// | CTRL | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT   | DN  | RIGHT | BT4    | BT5   |
-// | SHFT | F10 | F1 | F2 | F3 | RCLK |---| ARTSEY | PLOVER |     | BT1   | BT2    | BT3   |
+// | AltTAB | F12 | F7 | F8 | F9 | LCLK |---| SCRLUP | LCLK   | UP  | RCLK  | OUTTOG | BTCLR |
+// | CTRL   | F11 | F4 | F5 | F6 | MCLK |---| SCRLDN | LEFT   | DN  | RIGHT | BT4    | BT5   |
+// | SHFT   | F10 | F1 | F2 | F3 | RCLK |---| ARTSEY | PLOVER |     | BT1   | BT2    | BT3   |
 //                  | GUI | □□ | SPC  |---| ENT    | □□□□□□ | ALT |
             bindings = <
-   &kp TAB     &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &out OUT_TOG &bt BT_CLR
+   &kp LA(TAB) &kp F12 &kp F7 &kp F8   &kp F9  &mkp LCLK    &mwh SCROLL_UP   &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &out OUT_TOG &holdbt BT_CLR
    &kp LCTRL   &kp F11 &kp F4 &kp F5   &kp F6  &mkp MCLK    &mwh SCROLL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_SEL 3 &bt BT_SEL 4
    &kp LSHIFT  &kp F10 &kp F1 &kp F2   &kp F3  &mkp RCLK    &to ARTSEY       &to PLOVER     &trans         &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2
                               &kp LGUI &trans  &kp SPACE    &kp RET          &trans         &kp RALT
