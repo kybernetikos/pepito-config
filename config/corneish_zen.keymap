@@ -318,14 +318,14 @@
         plover_layer {
             label = "PLOVER";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |---|  Y  |  U   |  I  |  O  |  P  | [    |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |---|  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  | NUM |  SPC|  B  |---| ENT | RSE  |  ,  |  .  |  /  | ESC  |
-//                    | 1   |  C  |   V |---|  N  | M    | 1   |
+// |    |  S  |  T  |  P  |  H  |  *  |---|  *  |  F   |  P  |  L  |  T  |  D   |
+// |    |  S  |  K  |  W  |  R  |  *  |---|  *  |  R   |  B  |  G  |  S  |  Z   |
+// |    |  X1 |  X2 |  X3 |  X4 |  X5 |---|  X6 |  X7  |  X8 |  X9 | X10 | X11  |
+//                  |  #  |  A  |  I  |---|  E  |  U   |  #  |
             bindings = <
     &none  &kp PLV_SL  &kp PLV_TL   &kp PLV_PL  &kp PLV_HL  &kp PLV_ST     &kp PLV_ST  &kp PLV_FR  &kp PLV_PR  &kp PLV_LR   &kp PLV_TR  &kp PLV_DR
     &none  &kp PLV_SL  &kp PLV_KL   &kp PLV_WL  &kp PLV_RL  &kp PLV_ST     &kp PLV_ST  &kp PLV_RR  &kp PLV_BR  &kp PLV_GR   &kp PLV_SR  &kp PLV_ZR
-    &none  &none       &none        &none       &none       &none          &none       &none       &none       &none        &none       &none
+    &none  &kp PLV_X1  &kp PLV_X2   &kp PLV_X3  &kp PLV_X4  &kp PLV_X5     &kp PLV_X6  &kp PLV_X7  &kp PLV_X8  &kp PLV_X9   &kp PLV_X10 &kp PLV_X11
                                     &kp PLV_NM  &kp PLV_A   &kp PLV_O      &kp PLV_E   &kp PLV_U   &kp PLV_NM
             >;
         };
