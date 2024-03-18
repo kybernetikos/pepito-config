@@ -6,9 +6,11 @@ manifest:
       url-base: https://github.com/urob
     - name: k3d3
       url-base: https://github.com/k3d3
+    - name: k3d3fork
+      url-base: https://github.com/kybernetikos/
   projects:
-    - name: zmk
-      remote: k3d3
+    - name: k3d3-zmk
+      remote: k3d3fork
       revision: main
       import: app/west.yml
   self:
